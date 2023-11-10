@@ -2,7 +2,7 @@
   "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://nellievropa.github.io09-goit-js-hw",
+  "homepage": "https://nellievropa.github.io/09-goit-js-hw",
   "scripts": {
     "start": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /09-goit-js-hw/"
