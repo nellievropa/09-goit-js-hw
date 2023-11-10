@@ -36,7 +36,7 @@ const timer = {
         refs.startBtn.isActive = false;
         // дата від якої рахуємо відлік
         const targetDate = new Date(Calendars.selectedDates[0]);
-        // console.log(targetDate);
+    
   //   переводимо  її в мілісекунди 
     const reversDate = new Date(targetDate).getTime();
     const currentDate = new Date().getTime();
