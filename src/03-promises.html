@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Promise generator</title>
     <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/03-promises.css">
   </head>
   <body>
     <p><a href="index.html">Go back</a></p>
@@ -12,18 +13,19 @@
     <form class="form">
       <label>
         First delay (ms)
-        <input type="number" name="delay" required />
+        <input type="number" name="delay" class="js-delay" required />
       </label>
       <label>
         Delay step (ms)
-        <input type="number" name="step" required />
+        <input type="number" name="step" class="js-step" required />
       </label>
       <label>
-        Amount
-        <input type="number" name="amount" required />
+        Amount    
+        <input type="number" name="amount" class="js-number" required />
       </label>
       <button type="submit">Create promises</button>
     </form>
+
 
     <script src="js/03-promises.js" type="module"></script>
   </body>

@@ -1,0 +1,36 @@
+form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 50%;
+    background-color: rgb(219, 236, 226);
+    border: 1px solid black;
+    border-radius: 8px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 700;
+    font-size: medium;
+}
+label {
+    display: flex;
+    justify-content: space-between;
+    margin: 4px 0;
+    
+}
+input {
+border-radius: 8px;
+  
+
+}
+
+button {
+    background-color:rgb(62, 146, 97);
+   color: rgb(252, 247, 247);
+    width: 177px;
+    height: 24px;
+    margin: 8px auto;
+
+    border: 2px solid black;
+    border-radius: 8px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 700;
+}
