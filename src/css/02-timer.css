@@ -1,0 +1,60 @@
+body{
+    background-color: rgb(228, 245, 239);
+}
+input {
+    margin-top: 16px;
+    height: 36px;
+    font-size: 20px;
+    border-radius: 4px;
+}
+
+button {
+    margin-top: 16px;
+    font-size: 20px;
+    padding: 4px 12px;
+    border-radius: 4px;
+}
+
+.container {
+    max-width: 360px;
+    margin: 0 auto;
+    padding: 0 15px;
+    text-align: center;
+    /* gap: 12px; */
+    outline: 2px solid black;
+    border-radius: 8px;
+    background-color: darkcyan;
+}
+.timer {
+    display: flex;
+    
+}
+
+.field {
+display: flex;
+flex-direction: column;
+margin: 16px auto;
+outline: 2px solid black;
+border-radius: 4px;
+background-color: aliceblue;
+
+
+}
+
+.value {
+    width: 64px;
+    
+    text-align: center;
+    font-size: 40px;
+    font-weight: 600;
+
+    /* outline: 2px dashed #36f4db; */
+}
+.label {
+    
+width: 64px;
+
+text-align: center;
+font-size: 16px;
+/* outline: 2px dashed gold; */
+}
