@@ -13,7 +13,9 @@ const refs = {
     secsValue: document.querySelector('span[data-seconds]'),
 }
 
+
 const Calendars = flatpickr("input#datetime-picker", 
+
 
  {
         enableTime: true,
@@ -21,30 +23,49 @@ const Calendars = flatpickr("input#datetime-picker",
         defaultDate: new Date(),
         minuteIncrement: 1,
         onClose(selectedDates) {
-          console.log(selectedDates[0]);
-     
+        //   console.log(selectedDates);
+       
+          const selectedDate = selectedDates[0];
+          const nowDate = new Date();
+          if(selectedDate <= nowDate) {
+            Report.warning(
+                'You chose a wrong date!',
+                'Please try again - select the correct date',
+                'Okay', 
+                );
+           refs.startBtn.disabled = true;
+            } else {
+                Report.success(
+                    'Congratulation!',
+                    'You chose the right date, click `START` to continue',
+                    'Let go'
+                );
+                refs.startBtn.disabled = false;  
+            }
+    
         },
       }
     
 );
 
+
 const timer = {
     intervalId: null,
    
     start() {
-       
-        refs.startBtn.isActive = false;
+      
         // дата від якої рахуємо відлік
-        const targetDate = new Date(Calendars.selectedDates[0]);
+ const targetDate = new Date(Calendars.selectedDates[0]);
     
   //   переводимо  її в мілісекунди 
     const reversDate = new Date(targetDate).getTime();
     const currentDate = new Date().getTime();
     // console.log(reversDate);
     // console.log(currentDate);
-
-    if (reversDate < currentDate) {
-        refs.startBtn.isActive = false;
+ 
+    if (reversDate < currentDate || '') {
+       
+        refs.startBtn.disabled = true;
         // alert("Please choose a date in the future");
         // Report.failure(
         //     'You chose a wrong date!',
@@ -53,29 +74,28 @@ const timer = {
         //     );
             Report.warning(
                 'You chose a wrong date!',
-                'Please try again <br/><br/>- select the correct date',
+                'Please try again - select the correct date',
                 'Okay',
-                () => {
-                    alert(' Будь ласка, спробуйте ще та виберіть дату знову');
-                    },
+             
                 );
 
         return;
     }
-
+    
     let deltaTime = 0;
     const intervalId = setInterval(() => {
     const currentDate = new Date().getTime();
 
-    refs.startBtn.isActive = true;
+    refs.startBtn.isActive = false;
     deltaTime = reversDate - currentDate;
     // console.log(deltaTime);
     
     if (deltaTime <= 0) {
         clearInterval(intervalId);
+        refs.startBtn.disabled = true;
         Report.info(
             'Time "X" has come',
-            'And we can move forward! <br/><br/>- NeBa',
+            'And we can move forward! - NeBa',
             'Okay',
             );
         console.log(`Interval with id ${intervalId} has stopped!`);
@@ -90,12 +110,17 @@ const timer = {
     addLeadingZero(time);
 
 }, 1000);
+
     },
 
 };
 
+
 refs.startBtn.addEventListener('click', () => {
+    refs.startBtn.disabled = true;
     timer.start();
+    
+   
 });
 
 
