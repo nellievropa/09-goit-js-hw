@@ -23,20 +23,20 @@ console.log(step)
 if (delay <= 0 || step < 0 || position < 0) {
   Notify.warning('Fulfilled fields!')
 }
-for (position = 1) {
+// for (let position = 1, ) {
   
-  createPromise(i, delay)
-  .then(({position, delay}) => {
-    //  delay += step;
-    Notify.success(`✅ Fulfilled promise ${position + 1} in ${delay}ms`);
+//   createPromise(i, delay)
+//   .then(({position, delay}) => {
+//     //  delay += step;
+//     Notify.success(`✅ Fulfilled promise ${position + 1} in ${delay}ms`);
    
-  })
-  .catch(({position, delay}) => {
-    //  delay += step;
-    Notify.failure(`❌ Rejected promise ${position + 1} in ${delay}ms`)
+//   })
+//   .catch(({position, delay}) => {
+//     //  delay += step;
+//     Notify.failure(`❌ Rejected promise ${position + 1} in ${delay}ms`)
    
-  })
- };
+//   })
+//  };
 
  for (let i = 0; i <= position - 1; i += 1) {
   
