@@ -17,20 +17,39 @@ let delay = Number(refs.firstDelayField.value);
 let step = Number(refs.delayStepField.value);
 const position = Number(refs.amountField.value);
 console.log(position)
+console.log(delay)
+console.log(step)
 
 if (delay <= 0 || step < 0 || position < 0) {
   Notify.warning('Fulfilled fields!')
 }
-for (let i = 0; i <= position - 1; i += 1) {
-  delay += step;
+for (position = 1) {
+  
   createPromise(i, delay)
   .then(({position, delay}) => {
+    //  delay += step;
     Notify.success(`✅ Fulfilled promise ${position + 1} in ${delay}ms`);
-    
+   
   })
   .catch(({position, delay}) => {
+    //  delay += step;
     Notify.failure(`❌ Rejected promise ${position + 1} in ${delay}ms`)
-    
+   
+  })
+ };
+
+ for (let i = 0; i <= position - 1; i += 1) {
+  
+  createPromise(i, delay += step)
+  .then(({position, delay}) => {
+    //  delay += step;
+    Notify.success(`✅ Fulfilled promise ${position + 1} in ${delay}ms`);
+   
+  })
+  .catch(({position, delay, step}) => {
+    //  delay += step;
+    Notify.failure(`❌ Rejected promise ${position + 1} in ${delay}ms`)
+   
   })
  }
  event.currentTarget.reset();
