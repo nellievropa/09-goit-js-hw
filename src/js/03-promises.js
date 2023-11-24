@@ -26,14 +26,14 @@ if (delay <= 0 || step < 0 || amount < 0) {
 
  for (let i = 0; i <= amount - 1; i += 1) {
   
-  createPromise(i, delay)
+  createPromise(i, delay += step * i)
   .then(({position, delay}) => {
-    delay += step * i;
+   
     Notify.success(`✅ Fulfilled promise ${position + 1} in ${delay}ms`);
    
   })
   .catch(({position, delay}) => {
-    delay += step * i;
+   
     Notify.failure(`❌ Rejected promise ${position + 1} in ${delay}ms`)
    
   })
