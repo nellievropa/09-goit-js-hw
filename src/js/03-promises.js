@@ -15,39 +15,25 @@ function onRun(event) {
  event.preventDefault()
 let delay = Number(refs.firstDelayField.value);
 let step = Number(refs.delayStepField.value);
-const position = Number(refs.amountField.value);
-console.log(position)
+let amount = Number(refs.amountField.value);
+console.log(amount)
 console.log(delay)
 console.log(step)
 
-if (delay <= 0 || step < 0 || position < 0) {
+if (delay <= 0 || step < 0 || amount < 0) {
   Notify.warning('Fulfilled fields!')
 }
-// for (let position = 1, ) {
-  
-//   createPromise(i, delay)
-//   .then(({position, delay}) => {
-//     //  delay += step;
-//     Notify.success(`✅ Fulfilled promise ${position + 1} in ${delay}ms`);
-   
-//   })
-//   .catch(({position, delay}) => {
-//     //  delay += step;
-//     Notify.failure(`❌ Rejected promise ${position + 1} in ${delay}ms`)
-   
-//   })
-//  };
 
- for (let i = 0; i <= position - 1; i += 1) {
+ for (let i = 0; i <= amount - 1; i += 1) {
   
-  createPromise(i, delay += step)
+  createPromise(i, delay)
   .then(({position, delay}) => {
-    //  delay += step;
+    delay += step * i;
     Notify.success(`✅ Fulfilled promise ${position + 1} in ${delay}ms`);
    
   })
-  .catch(({position, delay, step}) => {
-    //  delay += step;
+  .catch(({position, delay}) => {
+    delay += step * i;
     Notify.failure(`❌ Rejected promise ${position + 1} in ${delay}ms`)
    
   })
